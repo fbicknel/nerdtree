@@ -107,7 +107,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == ""
 #### How can I open NERDTree automatically when vim starts up on opening a directory?
 ```vim
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | wincmd p | exe 'cd '.argv()[0] | endif
 ```
 
 This window is tab-specific, meaning it's used by all windows in the tab. This trick also prevents NERDTree from hiding when first selecting a file.
